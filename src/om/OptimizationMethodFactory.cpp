@@ -1,7 +1,7 @@
 
 #include "om/OptimizationMethodFactory.hpp"
 #include "om/OptimizationMethodBase.hpp"
-#include "om/OptimizationMethodRandomSearch.hpp"
+#include "om/OptimizationMethodDFORandomSearch.hpp"
 
 std::unique_ptr<vae::om::OptimizationMethodBase> vae::om::factor_optimization_method(
     EOptimizationMethod method,
@@ -17,7 +17,7 @@ std::unique_ptr<vae::om::OptimizationMethodBase> vae::om::factor_optimization_me
     case EOptimizationMethod::OM_NONE:
         return nullptr;
     case EOptimizationMethod::OM_RANDOM_SEARCH:
-        reval = std::make_unique<vae::om::OptimizationMethodRandomSearch>(rng);
+        reval = std::make_unique<vae::om::OptimizationMethodDFORandomSearch>(rng);
     case EOptimizationMethod::OM_NEWTON_METHOD:
         break;
     }

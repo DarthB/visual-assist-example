@@ -3,7 +3,7 @@
 #include <locale>
 #include <string>
 
-vae::om::optimization_method_parameters::optimization_method_parameters()
+vae::om::OptimizationMethodParameters::OptimizationMethodParameters()
     : max_iterations(100)
     , objective_tolerance(0.0001)
     , max_step_size(0.1)

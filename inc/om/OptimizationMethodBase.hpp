@@ -20,8 +20,8 @@ namespace om {
 
     // #todo: 3.1 Show documentation snippets here
     // #todo: 0.1 Rename to OptimizationMethodParameters
-    struct optimization_method_parameters {
-        optimization_method_parameters();
+    struct OptimizationMethodParameters {
+        OptimizationMethodParameters();
 
         uint32_t max_iterations;
 
@@ -81,7 +81,7 @@ namespace om {
         /// a sub step.
         substep_done_ftor m_substep_done_handler;
 
-        optimization_method_parameters m_params;
+        OptimizationMethodParameters m_params;
     };
 
 }; // ns vae::om

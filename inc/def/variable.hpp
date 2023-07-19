@@ -26,6 +26,9 @@ enum EVariableBuildError {
 
 namespace vae {
 namespace def {
+
+using cpp::result;
+
     /**
      *	@brief	The type of a variable in an optimization problem
      */
@@ -64,15 +67,15 @@ namespace def {
         Variable(Variable&&) = default;
         Variable& operator=(Variable&&) = default;
 
-        // #todo 1.2 Implement the missing method
-        cpp::result<void, EVariableValueError> set_value(double value);
+        void set_value(double value);
 
         double get_value() const { return m_value; }
 
         const std::string& get_name() const { return m_name; }
 
-        // #todo 1.4 extract methods delta_clamp and delta_reflect
         void delta(double delta, EBoundsStrategy strategy);
+
+        void delta_clamp(double delta);
 
     private:
         /**
@@ -101,42 +104,17 @@ namespace def {
      */
     class VariableBuilder {
     public:
-        VariableBuilder(std::string name)
-            : m_done(false)
-        {
-            m_variable.m_name = name;
-        }
+        VariableBuilder(std::string name);
 
-        // #todo 1.1 Move the implementations into the source file
-        VariableBuilder& name(std::string name)
-        {
-            this->m_variable.m_name = name;
-            return *this;
-        }
+        VariableBuilder& name(std::string name);
 
-        VariableBuilder& desc(std::string desc)
-        {
-            this->m_variable.m_description = desc;
-            return *this;
-        }
+        VariableBuilder& desc(std::string desc);
 
-        VariableBuilder& value(double value)
-        {
-            this->m_variable.m_value = value;
-            return *this;
-        }
+        VariableBuilder& value(double value);
 
-        VariableBuilder& min(double min)
-        {
-            this->m_variable.m_min = min;
-            return *this;
-        }
+        VariableBuilder& min(double min);
 
-        VariableBuilder& max(double max)
-        {
-            this->m_variable.m_max = max;
-            return *this;
-        }
+        VariableBuilder& max(double max);
 
         //
         cpp::result<Variable, EVariableBuildError> build();

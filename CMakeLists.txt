@@ -31,7 +31,7 @@ add_library(example_va_lib
 	"src/def/Variable.cpp"
 	"src/om/OptimizationMethodFactory.cpp"
 	"src/om/OptimizationMethodBase.cpp"
-	"src/om/OptimizationMethodRandomSearch.cpp")
+	"src/om/OptimizationMethodDFORandomSearch.cpp")
 target_link_libraries(example_va_lib PRIVATE Microsoft.GSL::GSL)
 target_include_directories(example_va_lib PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/inc")
 

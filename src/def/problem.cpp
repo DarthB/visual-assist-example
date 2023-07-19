@@ -18,11 +18,21 @@ namespace def {
         adaptor(vb);
         auto res = vb.build();
         if (res.has_error()) {
-            // #todo 2.1 handle all error cases
+
             EVariableBuildError ec = res.error();
             switch (ec) {
             case NO_ERROR:
                 // we do nothing here
+                break;
+            case ILLFORMED_NAME:
+                break;
+            case INVALID_MINMAX:
+                break;
+            case VALUE_OUT_OF_BOUNDS:
+                break;
+            case CALLED_BUILD_TWICE:
+                break;
+            default:
                 break;
             }
         }
